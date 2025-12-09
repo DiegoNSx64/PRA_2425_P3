@@ -3,12 +3,12 @@
 
 #include <string>
 #include <ostream>
-using namespace std;
+
 
 template <typename V> 
 class TableEntry {
     public:
-        string key;
+	std:: string key;
 	V value;
 
 	TableEntry(std::string key, V value){
@@ -30,17 +30,17 @@ class TableEntry {
 	}
 
 	friend bool operator==(const TableEntry<V> &te1, const TableEntry<V> &te2){
-		return (te1.key == te2.key && te1.value == te2.value);
+		return (te1.key == te2.key);
 	
 	}
 	friend bool operator!=(const TableEntry<V> &te1, const TableEntry<V> &te2){
 	
-		return !(te1 == te2);
+		return !(te1.key == te2.key);
 	}
-	friend ostream& operator<<(ostream &out, const TableEntry<V> &te){
+	friend std::ostream& operator<<(std::ostream &out, const TableEntry<V> &te){
 	
 		
-                 out << "Key: " << te.key << ", Value: " << te.value;
+                 out << " ('" << te.key << "' =>  " << te.value <<")";
                  return out;
 
 	}
