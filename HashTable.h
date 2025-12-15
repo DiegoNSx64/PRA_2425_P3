@@ -24,10 +24,10 @@ class HashTable: public Dict<V> {
 		}
 		return res % max;
 	}
-	// table[i] es la cubeta es on hi han nodos amb informacio de clave->valor
+	
 
     public:
-        // ...
+        
 	void insert(string key, V value) override{
 		int i = h(key);
 		int pos = table[i].search(key);
@@ -35,12 +35,12 @@ class HashTable: public Dict<V> {
 			throw runtime_error("Ya existe en el diccionario");
 		}
 		TableEntry<V> aux = TableEntry<V>(key, value);
-		table[i].append(aux); // tinc que recorrer tots els nodos de la posició i despres afegir 
+		table[i].append(aux);  
 		n++;
 	}
 	V search(string key)override{
 		int i = h(key);      
-		int pos = table[i].search(key); // en la posicio i se suposa que esta key, si no esta fem un throw
+		int pos = table[i].search(key); 
 			
 		if(pos == -1){
 			throw runtime_error("No se encuentra en el diccionario");
@@ -84,7 +84,7 @@ class HashTable: public Dict<V> {
 
     	for (int i = 0; i < th.max; i++) { 
 			out << "== Cubeta " << i << " ==" << endl << endl;
-			out << th.table[i] << endl << endl; // utilitza el operator de TableEntry i ListLinked
+			out << th.table[i] << endl << endl; 
     	}
 
 		out << "==============" << endl;

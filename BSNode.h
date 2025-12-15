@@ -2,7 +2,7 @@
 #define BSNODE_H
 
 #include <ostream>
-#include <iostream>
+
 template <typename T> 
 class BSNode {
     public:
@@ -17,8 +17,8 @@ class BSNode {
 	}
 	
 	friend std::ostream& operator<<(std::ostream &out, const BSNode<T> &bsn){
-		std::cout << bsn.elem << std::endl;
-		return std::cout;
+		out << bsn.elem << std::endl;
+		return out;
 	} 
 };
 
